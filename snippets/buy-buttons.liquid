@@ -110,13 +110,15 @@
               // Make this the shopify checkout page for this site.
               const returnURL = window.location.origin + '/checkout';
           
-              const url = `https://store-payment.soapbox.inc?attendeJWT=${attendeeJWT}&eventId=${eventId}&productId=${productId}&returnUrl=${returnURL}`;
+              const url = 'https://store-payment.soapbox.inc?attendeJWT=' + attendeeJWT + '&eventId=' + eventId + '&productId=' + productId + '&returnUrl=' + returnURL;
           
               window.location.href = url;
             }
-          
-            document.getElementById("ProductSubmitButton-{{ section_id }}-points").addEventListener("click", function() {
-              buyWithPoints();
+
+            document.addEventListener('DOMContentLoaded', function() {
+              document.getElementById("ProductSubmitButton-{{ section_id }}-points").addEventListener("click", function() {
+                buyWithPoints();
+              });
             });
           </script>
 
