@@ -108,7 +108,8 @@
               const productId = '{{ product.selected_or_first_available_variant.id }}';
           
               // Make this the shopify checkout page for this site.
-              const returnURL = window.location.origin + '/checkout';
+              // const returnURL = window.location.origin + '/discount/{{ code }}?redirect=/checkout';
+              const returnURL = window.location.origin;
           
               const url = 'https://store-payment.soapbox.inc?attendeJWT=' + attendeeJWT + '&eventId=' + eventId + '&productId=' + productId + '&returnUrl=' + returnURL;
           
