@@ -97,6 +97,58 @@
               </svg>
             </div>
           </button>
+
+          <script lang="javascript">
+            function buyWithPoints() {
+              // Get this from localStorage.
+              const attendeeJWT = localStorage.getItem('attendeeJWT');
+              const eventId = localStorage.getItem('eventId');
+          
+              // Make sure this is the product gid without the shopify/product/ prefix.
+              const productId = '{{ product.selected_or_first_available_variant.id }}';
+          
+              // Make this the shopify checkout page for this site.
+              const returnURL = window.location.origin + '/checkout';
+          
+              const url = `https://store-payment.soapbox.inc?attendeJWT=${attendeeJWT}&eventId=${eventId}&productId=${productId}&returnUrl=${returnURL}`;
+          
+              window.location.href = url;
+            }
+          
+            document.getElementById("ProductSubmitButton-{{ section_id }}-points").addEventListener("click", function() {
+              buyWithPoints();
+            });
+          </script>
+
+          <button
+            id = "ProductSubmitButton-{{ section_id }}-points"
+            type="button"
+            name="buyWithPoints"
+            class="product-form__submit button button--full-width button--primary"
+            {% if product.selected_or_first_available_variant.available == false or quantity_rule_soldout %}
+              disabled
+            {% endif %}
+          >
+            <span>
+              {%- if product.selected_or_first_available_variant.available == false or quantity_rule_soldout -%}
+                {{ 'products.product.sold_out' | t }}
+              {%- else -%}
+                {{ 'products.product.buy_with_points' | t }}
+              {%- endif -%}
+            </span>
+            <div class="loading-overlay__spinner hidden">
+              <svg
+                aria-hidden="true"
+                focusable="false"
+                class="spinner"
+                viewBox="0 0 66 66"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <circle class="path" fill="none" stroke-width="6" cx="33" cy="33" r="30"></circle>
+              </svg>
+            </div>
+          </button>
+
           {%- if show_dynamic_checkout -%}
             {{ form | payment_button }}
           {%- endif -%}
