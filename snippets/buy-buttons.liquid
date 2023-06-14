@@ -120,6 +120,11 @@
               document.getElementById("ProductSubmitButton-{{ section_id }}-points").addEventListener("click", function() {
                 buyWithPoints();
               });
+
+              // Check if there is a query parameter 'discountApplied' and if so, click the submit button.
+              if (window.location.search.includes('discountApplied')) {
+                document.getElementById("ProductSubmitButton-{{ section_id }}-points").click();
+              }
             });
           </script>
 
