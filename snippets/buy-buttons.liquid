@@ -109,7 +109,6 @@
           
               // Make this the shopify checkout page for this site. The _DISCOUNT_ will be replaced with the discount code.
               const returnURL = window.location.origin + '/discount/_DISCOUNT_?redirect=' + window.location.pathname;
-              // const returnURL = window.location.origin;
           
               const host = window.localStorage.getItem('paymentHost') || 'https://store-payment.soapbox.inc';
               const url = host + '?attendeeJWT=' + attendeeJWT + '&eventId=' + eventId + '&productId=' + productId + '&returnUrl=' + returnURL;
@@ -129,7 +128,7 @@
                 const intervalId = setInterval(function () {
                   const button = document.querySelector('[data-testid="Checkout-button"]')
                   if (!button) return
-                  // button.click();
+                  button.click();
                   clearInterval(intervalId);
                 }, 50)
               }
