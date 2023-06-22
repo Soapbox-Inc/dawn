@@ -122,20 +122,54 @@
                 buyWithPoints();
               });
 
+              const loadingModal = document.getElementById('loading-modal');
+
               // Check if there is a hash 'discountApplied' and if so, click the submit button.
               if (window.location.hash.includes('discountApplied')) {
+                loadingModal.style.display = 'flex';
+
                 const intervalId = setInterval(function () {
                   const button = document.querySelector('[data-testid="Checkout-button"]')
                   if (!button) return
                   button.click();
                   clearInterval(intervalId);
+                  // loadingModal.style.display = 'none';
                 }, 50)
               }
             });
           </script>
 
+          <style>
+            #loading-modal {
+              position: fixed;
+              top: 0;
+              left: 0;
+              width: 100%;
+              height: 100%;
+              background-color: rgba(0, 0, 0, 0.5);
+              z-index: 9999;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+            }
+
+            #loading-modal div {
+              background-color: white;
+              padding: 20px;
+              border-radius: 10px;
+            }
+
+            #loading-modal div h1 {
+              margin: 0;
+            }
+          </style>
+
+          <div id="loading-modal" style="display: none;">
+            <div><h1>Loading</h1></div>
+          </div>
+
           <button
-            id = "ProductSubmitButton-{{ section_id }}-points"
+            id="ProductSubmitButton-{{ section_id }}-points"
             type="button"
             name="buyWithPoints"
             class="product-form__submit button button--full-width button--primary"
