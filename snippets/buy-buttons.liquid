@@ -100,6 +100,7 @@
 
           <script lang="javascript">
             function buyWithPoints() {
+              document.getElementById('')
               // Get this from localStorage.
               const attendeeJWT = localStorage.getItem('attendeeJWT');
               const eventId = localStorage.getItem('eventId');
@@ -122,10 +123,13 @@
 
               // Check if there is a query parameter 'discountApplied' and if so, click the submit button.
               if (window.location.search.includes('discountApplied')) {
+                debugger
                 const intervalId = setInterval(function () {
                   const button = document.querySelector('[data-testid="Checkout-button"]')
+                  debugger
                   if (!button) return
                   button.click();
+                  debugger
                   clearInterval(intervalId);
                 }, 50)
               }
