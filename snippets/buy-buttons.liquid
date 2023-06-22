@@ -104,8 +104,7 @@
               const attendeeJWT = localStorage.getItem('attendeeJWT');
               const eventId = localStorage.getItem('eventId');
           
-              // Make sure this is the product gid without the shopify/product/ prefix.
-              const productId = '{{ product.selected_or_first_available_variant.id }}';
+              const productId = '{{ product.id }}';
           
               // Make this the shopify checkout page for this site.
               // const returnURL = window.location.origin + '/discount/{{ code }}?redirect=/checkout';
