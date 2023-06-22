@@ -131,6 +131,7 @@
                 const intervalId = setInterval(function () {
                   const button = document.querySelector('[data-testid="Checkout-button"]')
                   if (!button) return
+                  debugger
                   button.click();
                   clearInterval(intervalId);
                   // loadingModal.style.display = 'none';
