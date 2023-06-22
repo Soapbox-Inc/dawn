@@ -124,7 +124,7 @@
 
               // Check if there is a hash 'discountApplied' and if so, click the submit button.
               if (window.location.hash.includes('discountApplied')) {
-                document.body.appendChild('<div id="loading-modal"><h1>Loading</h1></div>')
+                document.body.innerHTML += '<div id="loading-modal"><h1>Loading</h1></div>';
 
                 const intervalId = setInterval(function () {
                   const button = document.querySelector('[data-testid="Checkout-button"]')
