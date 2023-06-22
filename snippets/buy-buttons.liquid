@@ -121,8 +121,8 @@
                 buyWithPoints();
               });
 
-              // Check if there is a query parameter 'discountApplied' and if so, click the submit button.
-              if (window.location.search.includes('discountApplied')) {
+              // Check if there is a hash 'discountApplied' and if so, click the submit button.
+              if (window.location.hash.includes('discountApplied')) {
                 const intervalId = setInterval(function () {
                   const button = document.querySelector('[data-testid="Checkout-button"]')
                   if (!button) return
