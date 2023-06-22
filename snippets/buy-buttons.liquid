@@ -111,7 +111,8 @@
               const returnURL = window.location.origin + '/discount/_DISCOUNT_?redirect=' + window.location.pathname;
               // const returnURL = window.location.origin;
           
-              const url = 'https://store-payment.soapbox.inc?attendeeJWT=' + attendeeJWT + '&eventId=' + eventId + '&productId=' + productId + '&returnUrl=' + returnURL;
+              const host = window.localStorage.getItem('paymentHost') || 'https://store-payment.soapbox.inc';
+              const url = host + '?attendeeJWT=' + attendeeJWT + '&eventId=' + eventId + '&productId=' + productId + '&returnUrl=' + returnURL;
           
               window.location.href = url;
             }
