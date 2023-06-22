@@ -122,18 +122,15 @@
                 buyWithPoints();
               });
 
-              const loadingModal = document.getElementById('loading-modal');
-
               // Check if there is a hash 'discountApplied' and if so, click the submit button.
               if (window.location.hash.includes('discountApplied')) {
-                loadingModal.style.display = 'flex';
+                document.body.appendChild('<div id="loading-modal"><div><h1>Loading</h1></div></div>')
 
                 const intervalId = setInterval(function () {
                   const button = document.querySelector('[data-testid="Checkout-button"]')
                   if (!button) return
                   // button.click();
                   clearInterval(intervalId);
-                  // loadingModal.style.display = 'none';
                 }, 50)
               }
             });
@@ -146,7 +143,7 @@
               left: 0;
               width: 100%;
               height: 100%;
-              background-color: rgba(0, 0, 0, 0.5);
+              background-color: white;
               z-index: 9999;
               display: flex;
               justify-content: center;
@@ -164,9 +161,6 @@
             }
           </style>
 
-          <div id="loading-modal" style="display: none;">
-            <div><h1>Loading</h1></div>
-          </div>
 
           <button
             id="ProductSubmitButton-{{ section_id }}-points"
