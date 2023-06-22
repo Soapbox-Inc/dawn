@@ -108,7 +108,7 @@
               const productId = '{{ product.id }}';
           
               // Make this the shopify checkout page for this site.
-              const returnURL = window.location.origin + '/discount/{{ code }}?redirect=' + window.location.path + '?discountApplied';
+              const returnURL = window.location.origin + '/discount/{{ code }}?redirect=' + window.location.pathname + '?discountApplied';
               // const returnURL = window.location.origin;
           
               const url = 'https://store-payment.soapbox.inc?attendeeJWT=' + attendeeJWT + '&eventId=' + eventId + '&productId=' + productId + '&returnUrl=' + returnURL;
