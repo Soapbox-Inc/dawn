@@ -24,10 +24,6 @@
 
   <script lang="javascript">
     document.addEventListener('DOMContentLoaded', function() {
-      document.getElementById("ProductSubmitButton-{{ section_id }}-points").addEventListener("click", function() {
-        buyWithPoints();
-      });
-
       // Check if there is a hash 'discountApplied' and if so, click the submit button.
       if (window.location.hash.includes('discountApplied')) {
         document.querySelector('button[name="checkout"]')?.click();
