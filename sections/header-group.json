@@ -2,6 +2,28 @@
   "name": "t:sections.header.name",
   "type": "header",
   "sections": {
+    "dc0aae01-2b44-40de-bb2e-b07249b5032a": {
+      "type": "announcement-bar",
+      "blocks": {
+        "sections--15649512456244__dc0aae01-2b44-40de-bb2e-b07249b5032a-1689365635cc67bb97-0": {
+          "type": "announcement",
+          "settings": {
+            "text": "Welcome to our store",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "sections--15649512456244__dc0aae01-2b44-40de-bb2e-b07249b5032a-1689365635cc67bb97-0"
+      ],
+      "settings": {
+        "color_scheme": "",
+        "show_line_separator": true,
+        "show_social": false,
+        "auto_rotate": false,
+        "change_slides_speed": 5
+      }
+    },
     "header": {
       "type": "header",
       "settings": {
@@ -22,6 +44,7 @@
     }
   },
   "order": [
+    "dc0aae01-2b44-40de-bb2e-b07249b5032a",
     "header"
   ]
 }
