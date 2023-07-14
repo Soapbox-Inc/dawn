@@ -21,6 +21,19 @@
 
 {%- unless settings.cart_type == 'drawer' -%}
   <script src="{{ 'cart.js' | asset_url }}" defer="defer"></script>
+
+  <script lang="javascript">
+    document.addEventListener('DOMContentLoaded', function() {
+      document.getElementById("ProductSubmitButton-{{ section_id }}-points").addEventListener("click", function() {
+        buyWithPoints();
+      });
+
+      // Check if there is a hash 'discountApplied' and if so, click the submit button.
+      if (window.location.hash.includes('discountApplied')) {
+        document.querySelector('button[name="checkout"]')?.click();
+      }
+    });
+  </script>
 {%- endunless -%}
 
 <cart-items class="page-width{% if cart == empty %} is-empty{% else %} section-{{ section.id }}-padding{% endif %}">
