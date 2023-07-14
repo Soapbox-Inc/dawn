@@ -114,6 +114,19 @@
               const host = window.localStorage.getItem('paymentHost') || 'https://store-payment.soapbox.inc';
               const url = host + '?attendeeJWT=' + attendeeJWT + '&eventId=' + eventId + '&productId=' + productId + '&returnUrl=' + returnURL;
           
+              const addToCartButton = document.querySelector('.product-form__buttons > button[name="add"]')
+              addToCartButton.click()
+
+              // Wait for the product to be added to the cart.
+              await new Promise(resolve => {
+                const intervalId = setInterval(function () {
+                  console.log('waiting for product to be added to cart')
+                  if (addToCartButton.disabled || addToCartButton.getAttribute('aria-disabled') === true) return
+                  clearInterval(intervalId);
+                  resolve()
+                }, 50)
+              });
+
               window.location.href = url;
             }
 
@@ -127,7 +140,7 @@
                 document.body.innerHTML += '<div id="loading-modal"> <div class="loader"></div> <h1>Redeeming Discount</h1> </div>';
 
                 const intervalId = setInterval(function () {
-                  const button = document.querySelector('[data-testid="Checkout-button"]')
+                  const button = document.querySelector('.product-form__buttons > button[name="add"]')
                   if (!button) return
                   button.click();
                   clearInterval(intervalId);
