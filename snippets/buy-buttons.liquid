@@ -102,10 +102,13 @@
             async function getPointsCost() {
               const result = await (await fetch('https://soapbox.hasura.app/api/rest/store/product/{{ product.id }}')).json();
               console.log('result', result)
-              const pointsCost = result.products[0].points_cost
+              const pointsCost = result?.products?.[0]?.points_cost
 
               const button = document.getElementById("ProductSubmitButton-{{ section_id }}-points")
-              button.textContent = 'Buy for ' + pointsCost + ' points'
+              if (pointsCost) {
+                button.textContent = 'Buy for ' + pointsCost + ' points'
+                button.style.display = 'block'
+              }
             }
 
             async function buyWithPoints() {
@@ -204,6 +207,7 @@
             type="button"
             name="buyWithPoints"
             class="product-form__submit button button--full-width button--primary"
+            style="display: none;"
             {% if product.selected_or_first_available_variant.available == false or quantity_rule_soldout %}
               disabled
             {% endif %}
