@@ -99,9 +99,15 @@
           </button>
 
           <script lang="javascript">
+            async function getPointsCost() {
+              const result = (await fetch('https://soapbox.hasura.app/api/rest/store/product/{{ product.id }}')).json();
+              const pointsCost = result.products[0].pointsCost
+
+              const button = document.getElementById("ProductSubmitButton-{{ section_id }}-points")
+              button.textContent = 'Buy for ' + pointsCost + ' points'
+            }
+
             async function buyWithPoints() {
-              document.getElementById('')
-              // Get this from localStorage.
               const attendeeJWT = localStorage.getItem('attendeeJWT');
               const eventId = localStorage.getItem('eventId');
           
@@ -131,6 +137,8 @@
             }
 
             document.addEventListener('DOMContentLoaded', function() {
+              getPointsCost();
+
               document.getElementById("ProductSubmitButton-{{ section_id }}-points").addEventListener("click", function() {
                 buyWithPoints();
               });
