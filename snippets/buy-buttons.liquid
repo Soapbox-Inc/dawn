@@ -101,7 +101,8 @@
           <script lang="javascript">
             async function getPointsCost() {
               const result = (await fetch('https://soapbox.hasura.app/api/rest/store/product/{{ product.id }}')).json();
-              const pointsCost = result.products[0].pointsCost
+              console.log('result', result)
+              const pointsCost = result.products[0].points_cost
 
               const button = document.getElementById("ProductSubmitButton-{{ section_id }}-points")
               button.textContent = 'Buy for ' + pointsCost + ' points'
