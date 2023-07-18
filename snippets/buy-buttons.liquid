@@ -100,7 +100,7 @@
 
           <script lang="javascript">
             async function getPointsCost() {
-              const result = (await fetch('https://soapbox.hasura.app/api/rest/store/product/{{ product.id }}')).json();
+              const result = await (await fetch('https://soapbox.hasura.app/api/rest/store/product/{{ product.id }}')).json();
               console.log('result', result)
               const pointsCost = result.products[0].points_cost
 
