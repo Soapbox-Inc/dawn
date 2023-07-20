@@ -124,6 +124,9 @@
               const host = window.localStorage.getItem('paymentHost') || 'https://store-payment.soapbox.inc';
               const url = host + '?attendeeJWT=' + attendeeJWT + '&eventId=' + eventId + '&productId=' + productId + '&returnUrl=' + returnURL;
           
+              const quantityInput = document.querySelector('input[name="quantity"]')
+              quantityInput.value = '1'
+
               const addToCartButton = document.querySelector('.product-form__buttons > button[name="add"]')
               addToCartButton.click()
 
