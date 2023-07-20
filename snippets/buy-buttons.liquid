@@ -105,7 +105,8 @@
               const pointsCost = result?.products?.[0]?.points_cost
 
               const button = document.getElementById("ProductSubmitButton-{{ section_id }}-points")
-              if (pointsCost) {
+              const attendeeJWT = localStorage.getItem('attendeeJWT');
+              if (pointsCost && attendeeJWT) {
                 button.textContent = 'Buy for ' + pointsCost + ' points'
                 button.style.display = 'block'
               }
