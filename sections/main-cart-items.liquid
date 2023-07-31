@@ -24,11 +24,21 @@
 
   <script lang="javascript">
     document.addEventListener('DOMContentLoaded', function() {
+      console.log('[soapbox] Cart page loaded')
       // Check if there is a hash 'discountApplied' and if so, click the submit button.
       if (window.location.hash.includes('discountApplied')) {
+        console.log('[soapbox] discountApplied hash found, clicking checkout button')
+
         document.body.innerHTML += '<div id="loading-modal"> <div class="loader"></div> <h1>Redeeming Discount</h1> </div>';
 
-        document.querySelector('button[name="checkout"]')?.click();
+        const checkoutButton = document.querySelector('button[name="checkout"]');
+
+        if (!checkoutButton) {
+          console.log('[soapbox] Checkout button not found')
+          return;
+        }
+
+        checkoutButton?.click();
       }
     });
   </script>

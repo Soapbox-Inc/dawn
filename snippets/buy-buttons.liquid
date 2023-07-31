@@ -100,19 +100,23 @@
 
           <script lang="javascript">
             async function getPointsCost() {
+              console.log('[soapbox] getPointsCost')
               const result = await (await fetch('https://soapbox.hasura.app/api/rest/store/product/{{ product.id }}')).json();
-              console.log('result', result)
+              console.log('[soapbox] getPointsCost result', result)
               const pointsCost = result?.products?.[0]?.points_cost
 
               const button = document.getElementById("ProductSubmitButton-{{ section_id }}-points")
               const attendeeJWT = localStorage.getItem('attendeeJWT');
               if (pointsCost && attendeeJWT) {
+                console.log('[soapbox] Showing points button')
                 button.textContent = 'Buy for ' + pointsCost + ' points'
                 button.style.display = 'block'
               }
             }
 
             async function buyWithPoints() {
+              console.log('[soapbox] buyWithPoints')
+
               const attendeeJWT = localStorage.getItem('attendeeJWT');
               const eventId = localStorage.getItem('eventId');
           
@@ -125,22 +129,26 @@
               const host = window.localStorage.getItem('paymentHost') || 'https://store-payment.soapbox.inc';
               const url = host + '?attendeeJWT=' + attendeeJWT + '&eventId=' + eventId + '&productId=' + productId + '&returnUrl=' + returnURL;
           
+              console.log('[soapbox] buyWithPoints url', url)
+
               const quantityInput = document.querySelector('input[name="quantity"]')
               quantityInput.value = '1'
 
               const addToCartButton = document.querySelector('.product-form__buttons > button[name="add"]')
               addToCartButton.click()
+              console.log('[soapbox] buyWithPoints clicked add to cart button')
 
               // Wait for the product to be added to the cart.
               await new Promise(resolve => {
                 const intervalId = setInterval(function () {
-                  console.log('waiting for product to be added to cart')
+                  console.log('[soapbox] Waiting for product to be added to cart')
                   if (addToCartButton.disabled || addToCartButton.getAttribute('aria-disabled') === true) return
                   clearInterval(intervalId);
                   resolve()
                 }, 50)
               });
 
+              console.log('[soapbox] buyWithPoints redirecting to', url)
               window.location.href = url;
             }
 
@@ -153,11 +161,13 @@
 
               // Check if there is a hash 'discountApplied' and if so, click the submit button.
               if (window.location.hash.includes('discountApplied')) {
+                console.log('[soapbox] discountApplied')
                 document.body.innerHTML += '<div id="loading-modal"> <div class="loader"></div> <h1>Redeeming Discount</h1> </div>';
 
                 const intervalId = setInterval(function () {
                   const button = document.querySelector('.product-form__buttons > button[name="add"]')
                   if (!button) return
+                  console.log('[soapbox] discountApplied - clicking add to cart button')
                   button.click();
                   clearInterval(intervalId);
                 }, 50)
