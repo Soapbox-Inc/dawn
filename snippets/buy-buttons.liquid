@@ -168,7 +168,10 @@
                   const button = document.querySelector('.product-form__buttons > button[name="add"]')
                   if (!button) return
                   console.log('[soapbox] discountApplied - clicking add to cart button')
-                  button.click();
+                  setTimeout(() => {
+                    button.click();
+                    console.log('[soapbox] discountApplied - clicked add to cart button')
+                  }, 1000)
                   clearInterval(intervalId);
                 }, 50)
               }
