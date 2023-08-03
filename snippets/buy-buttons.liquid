@@ -152,6 +152,7 @@
               window.location.href = url;
             }
 
+
             document.addEventListener('DOMContentLoaded', function() {
               getPointsCost();
 
@@ -171,6 +172,23 @@
                   setTimeout(() => {
                     button.click();
                     console.log('[soapbox] discountApplied - clicked add to cart button')
+                  }, 1000)
+                  clearInterval(intervalId);
+                }, 50)
+              }
+
+              // Check if there is a hash 'buyNow' and if so, click the Apple Pay button.
+              if (window.location.hash.includes('buyNow')) {
+                console.log('[soapbox] buyNow')
+                document.body.innerHTML += '<div id="loading-modal"> <div class="loader"></div> <h1>Adding to Cart</h1> </div>';
+
+                const intervalId = setInterval(function () {
+                  const button = document.querySelector('div[data-testid="ApplePay-button"]')
+                  if (!button) return
+                  console.log('[soapbox] buyNow - clicking buy now button')
+                  setTimeout(() => {
+                    button.click();
+                    console.log('[soapbox] buyNow - clicked buy now button')
                   }, 1000)
                   clearInterval(intervalId);
                 }, 50)
