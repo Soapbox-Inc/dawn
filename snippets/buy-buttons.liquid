@@ -142,7 +142,7 @@
               await new Promise(resolve => {
                 const intervalId = setInterval(function () {
                   console.log('[soapbox] Waiting for product to be added to cart')
-                  if (addToCartButton.disabled || addToCartButton.getAttribute('aria-disabled') === true) return
+                  if (addToCartButton.disabled || addToCartButton.getAttribute('aria-disabled') === 'true') return
                   clearInterval(intervalId);
                   resolve()
                 }, 50)
