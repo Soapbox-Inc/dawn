@@ -180,7 +180,7 @@
               // Check if there is a hash 'buyNow' and if so, click the Apple Pay button.
               if (window.location.hash.includes('buyNow')) {
                 console.log('[soapbox] buyNow')
-                document.body.innerHTML += '<div id="loading-modal"> <div class="loader"></div> <h1>Adding to Cart</h1> </div>';
+                // document.body.innerHTML += '<div id="loading-modal"> <div class="loader"></div> <h1>Adding to Cart</h1> </div>';
 
                 const intervalId = setInterval(function () {
                   const button = document.querySelector('div[data-testid="ApplePay-button"]')
