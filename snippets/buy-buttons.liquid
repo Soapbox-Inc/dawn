@@ -114,22 +114,8 @@
               }
             }
 
-            async function buyWithPoints() {
-              console.log('[soapbox] buyWithPoints')
-
-              const attendeeJWT = localStorage.getItem('attendeeJWT');
-              const eventId = localStorage.getItem('eventId');
-          
-              const productId = '{{ product.id }}';
-          
-              // Make this the shopify checkout page for this site. The _DISCOUNT_ will be replaced with the discount code.
-              // const returnURL = window.location.origin + '/discount/_DISCOUNT_?redirect=' + window.location.pathname;
-              const returnURL = window.location.origin + '/discount/_DISCOUNT_?redirect=/cart';
-          
-              const host = window.localStorage.getItem('paymentHost') || 'https://store-payment.soapbox.inc';
-              const url = host + '?attendeeJWT=' + attendeeJWT + '&eventId=' + eventId + '&productId=' + productId + '&returnUrl=' + returnURL;
-          
-              console.log('[soapbox] buyWithPoints url', url)
+            async function addToCart() {
+              console.log('[soapbox] addToCart')
 
               const quantityInput = document.querySelector('input[name="quantity"]')
               quantityInput.value = '1'
@@ -148,12 +134,33 @@
                 }, 50)
               });
 
+              console.log('[soapbox] Product to added to cart')
+            }
+
+            async function buyWithPoints() {
+              console.log('[soapbox] buyWithPoints')
+
+              const attendeeJWT = localStorage.getItem('attendeeJWT');
+              const eventId = localStorage.getItem('eventId');
+          
+              const productId = '{{ product.id }}';
+          
+              // Make this the shopify checkout page for this site. The _DISCOUNT_ will be replaced with the discount code.
+              // const returnURL = window.location.origin + '/discount/_DISCOUNT_?redirect=' + window.location.pathname;
+              const returnURL = window.location.origin + '/discount/_DISCOUNT_?redirect=/cart';
+          
+              const host = window.localStorage.getItem('paymentHost') || 'https://store-payment.soapbox.inc';
+              const url = host + '?attendeeJWT=' + attendeeJWT + '&eventId=' + eventId + '&productId=' + productId + '&returnUrl=' + returnURL;
+          
+              console.log('[soapbox] buyWithPoints url', url)
+
+              await addToCart()
+
               console.log('[soapbox] buyWithPoints redirecting to', url)
               window.location.href = url;
             }
 
-
-            document.addEventListener('DOMContentLoaded', function() {
+            document.addEventListener('DOMContentLoaded', async function() {
               getPointsCost();
 
               document.getElementById("ProductSubmitButton-{{ section_id }}-points").addEventListener("click", function() {
@@ -177,21 +184,15 @@
                 }, 50)
               }
 
-              // Check if there is a hash 'buyNow' and if so, click the Apple Pay button.
+              // Check if there is a hash 'buyNow' and if so, click the add to cart and checkout buttons.
               if (window.location.hash.includes('buyNow')) {
                 console.log('[soapbox] buyNow')
-                // document.body.innerHTML += '<div id="loading-modal"> <div class="loader"></div> <h1>Adding to Cart</h1> </div>';
 
-                const intervalId = setInterval(function () {
-                  const button = document.querySelector('div[data-testid="ApplePay-button"]')
-                  if (!button) return
-                  console.log('[soapbox] buyNow - clicking buy now button')
-                  setTimeout(() => {
-                    button.click();
-                    console.log('[soapbox] buyNow - clicked buy now button')
-                  }, 1000)
-                  clearInterval(intervalId);
-                }, 50)
+                document.body.innerHTML += '<div id="loading-modal"> <div class="loader"></div> <h1>Adding to Cart</h1> </div>';
+
+                await addToCart()
+
+                window.location.href = '/checkout';
               }
             });
           </script>
