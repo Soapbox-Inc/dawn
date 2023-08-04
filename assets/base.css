@@ -3365,3 +3365,6 @@ details-disclosure > details {
     --sparkle: url('./sparkle.gif');
   }
 }
+.header__search {
+    display: none!important;
+}
