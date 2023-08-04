@@ -1,5 +1,96 @@
 {
   "sections": {
+    "42132c5d-9f3c-4fb8-aa09-8b3de10698c4": {
+      "type": "rich-text",
+      "blocks": {
+        "template--15649512980532__42132c5d-9f3c-4fb8-aa09-8b3de10698c4-heading-1": {
+          "type": "heading",
+          "settings": {
+            "heading": "<strong>Annual Conference Store<\/strong>",
+            "heading_size": "h1"
+          }
+        },
+        "template--15649512980532__42132c5d-9f3c-4fb8-aa09-8b3de10698c4-text-1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur metus tellus, facilisis at dignissim eu, euismod semper lectus.<\/p>"
+          }
+        },
+        "template--15649512980532__42132c5d-9f3c-4fb8-aa09-8b3de10698c4-button-1": {
+          "type": "button",
+          "disabled": true,
+          "settings": {
+            "button_label": "Button label",
+            "button_link": "",
+            "button_style_secondary": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "template--15649512980532__42132c5d-9f3c-4fb8-aa09-8b3de10698c4-heading-1",
+        "template--15649512980532__42132c5d-9f3c-4fb8-aa09-8b3de10698c4-text-1",
+        "template--15649512980532__42132c5d-9f3c-4fb8-aa09-8b3de10698c4-button-1"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 0
+      }
+    },
+    "417cd39c-e93e-4e44-b465-4057e69e5e8d": {
+      "type": "image-with-text",
+      "disabled": true,
+      "blocks": {
+        "template--15649512980532__417cd39c-e93e-4e44-b465-4057e69e5e8d-heading-1": {
+          "type": "heading",
+          "settings": {
+            "heading": "<strong>Annual Conference Store<\/strong>",
+            "heading_size": "h0"
+          }
+        },
+        "template--15649512980532__417cd39c-e93e-4e44-b465-4057e69e5e8d-text-1": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
+            "text_style": "body"
+          }
+        },
+        "template--15649512980532__417cd39c-e93e-4e44-b465-4057e69e5e8d-button-1": {
+          "type": "button",
+          "disabled": true,
+          "settings": {
+            "button_label": "Button label",
+            "button_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "template--15649512980532__417cd39c-e93e-4e44-b465-4057e69e5e8d-heading-1",
+        "template--15649512980532__417cd39c-e93e-4e44-b465-4057e69e5e8d-text-1",
+        "template--15649512980532__417cd39c-e93e-4e44-b465-4057e69e5e8d-button-1"
+      ],
+      "settings": {
+        "image": "shopify:\/\/shop_images\/noun-picture-815490.png",
+        "height": "small",
+        "desktop_image_width": "small",
+        "layout": "image_first",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "content_layout": "no-overlap",
+        "color_scheme": "",
+        "image_behavior": "none",
+        "mobile_content_alignment": "left",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
     "featured_collection": {
       "type": "featured-collection",
       "settings": {
@@ -30,6 +121,8 @@
     }
   },
   "order": [
+    "42132c5d-9f3c-4fb8-aa09-8b3de10698c4",
+    "417cd39c-e93e-4e44-b465-4057e69e5e8d",
     "featured_collection"
   ]
 }
