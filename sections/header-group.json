@@ -5,16 +5,16 @@
     "dc0aae01-2b44-40de-bb2e-b07249b5032a": {
       "type": "announcement-bar",
       "blocks": {
-        "sections--15649512456244__dc0aae01-2b44-40de-bb2e-b07249b5032a-1689365635cc67bb97-0": {
+        "534a77de-d40d-4c0e-a60f-d8d5fa9734a1": {
           "type": "announcement",
           "settings": {
-            "text": "Team Store",
+            "text": "Annual Conference Store",
             "link": ""
           }
         }
       },
       "block_order": [
-        "sections--15649512456244__dc0aae01-2b44-40de-bb2e-b07249b5032a-1689365635cc67bb97-0"
+        "534a77de-d40d-4c0e-a60f-d8d5fa9734a1"
       ],
       "settings": {
         "color_scheme": "background-1",
