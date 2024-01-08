@@ -6,7 +6,7 @@
         "template--15649512980532__42132c5d-9f3c-4fb8-aa09-8b3de10698c4-heading-1": {
           "type": "heading",
           "settings": {
-            "heading": "<strong>Represent your Team!<\/strong>",
+            "heading": "Exclusive Event Discounts and Swag<strong> <\/strong>",
             "heading_size": "h1"
           }
         },
@@ -45,7 +45,6 @@
     },
     "417cd39c-e93e-4e44-b465-4057e69e5e8d": {
       "type": "image-with-text",
-      "disabled": true,
       "blocks": {
         "template--15649512980532__417cd39c-e93e-4e44-b465-4057e69e5e8d-heading-1": {
           "type": "heading",
@@ -76,6 +75,7 @@
         "template--15649512980532__417cd39c-e93e-4e44-b465-4057e69e5e8d-text-1",
         "template--15649512980532__417cd39c-e93e-4e44-b465-4057e69e5e8d-button-1"
       ],
+      "disabled": true,
       "settings": {
         "image": "shopify:\/\/shop_images\/noun-picture-815490.png",
         "height": "small",
